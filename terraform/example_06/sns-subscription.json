@@ -1,0 +1,22 @@
+{
+   "Parameters":{
+       "TopicArnParameter":{
+           "Type": "String",
+           "Description" : "This is the ARN of the SNS topic to which we are subscribing"
+       },
+     "EndpointParameter":{
+       "Type": "String",
+       "Description":"The email address being subscribed"
+     }
+   },
+   "Resources": {
+       "snsCloudNotifySubscription": {
+           "Type": "AWS::SNS::Subscription",
+           "Properties": {
+             "Endpoint":{"Ref": "EndpointParameter"},
+             "Protocol":"email",
+             "TopicArn":{"Ref": "TopicArnParameter"}
+           }
+       }
+   }
+}

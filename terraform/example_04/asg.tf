@@ -1,2 +1,0 @@
-#Autoscaling group
-#launch config
