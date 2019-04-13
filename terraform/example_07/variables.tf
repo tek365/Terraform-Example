@@ -63,5 +63,5 @@ variable "key_name" {
 
 variable "ebs_cache_volume_size" {
   description = "The size in GB of the EBS cache volume. (Optional) Default is 150 GB."
-  default = "150"
+  default     = "150"
 }

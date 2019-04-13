@@ -28,3 +28,7 @@ variable "key_name" {
 variable "instance_type" {
   description = "the type of instance to launch"
 }
+
+variable "vpc_id" {
+  description = "The VPC into which resources are deployed"
+}

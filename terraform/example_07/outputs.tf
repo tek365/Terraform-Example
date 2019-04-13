@@ -14,7 +14,7 @@ output "s3_bucket_arn" {
 }
 
 output "role_policy_arn" {
-  value       = "${[YOUR IAM ROLE POLICY ARN GOES HERE]}"  #todo add your value here
+  value       = "${[YOUR IAM ROLE POLICY ARN GOES HERE]}"               #todo add your value here
   description = "the role policy is used in the share creation command"
 }
 
