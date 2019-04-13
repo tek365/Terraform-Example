@@ -1,8 +1,9 @@
 resource "aws_security_group" "my_instance_sg" {
+  vpc_id = "${var.vpc_id}"
   ingress {
     from_port = 22
     to_port   = 22
-    protocol  = "-1"
+    protocol  = "tcp"
 
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
@@ -12,7 +13,7 @@ resource "aws_security_group" "my_instance_sg" {
   ingress {
     from_port = 80
     to_port   = 80
-    protocol  = "-1"
+    protocol  = "tcp"
 
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
@@ -22,7 +23,7 @@ resource "aws_security_group" "my_instance_sg" {
   ingress {
     from_port = 443
     to_port   = 443
-    protocol  = "-1"
+    protocol  = "tcp"
 
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.

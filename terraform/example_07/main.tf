@@ -41,16 +41,16 @@ resource "aws_instance" "gateway" {
   ]
 
   volume_tags = {
-      "Name" = "${var.application}-${var.environment}-${var.role}",
-      "Role" = "${var.role}",
-      "GatewayName" = "${var.gateway_name}"
-      }
+    "Name"        = "${var.application}-${var.environment}-${var.role}"
+    "Role"        = "${var.role}"
+    "GatewayName" = "${var.gateway_name}"
+  }
 
   tags = {
-      "Name" = "${var.application}-${var.environment}-${var.role}",
-      "Role" = "${var.role}",
-      "GatewayName" = "${var.gateway_name}"
-    }
+    "Name"        = "${var.application}-${var.environment}-${var.role}"
+    "Role"        = "${var.role}"
+    "GatewayName" = "${var.gateway_name}"
+  }
 }
 
 resource "aws_route53_record" "gateway_A_record" {
@@ -64,11 +64,12 @@ resource "aws_route53_record" "gateway_A_record" {
 resource "aws_s3_bucket" "gateway_bucket" {
   bucket = "${var.bucket_name}"
   region = "${var.region}"
-  acl = "private"
+  acl    = "private"
 
   versioning {
     enabled = true
   }
+
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
@@ -76,14 +77,14 @@ resource "aws_s3_bucket" "gateway_bucket" {
       }
     }
   }
-  tags = {
-    fqdn = "${aws_route53_record.gateway_A_record.fqdn}"
-    application = "${var.application}"
-    environment = "${var.environment}"
-    role = "${var.role}"
-    line_of_business = "${var.line_of_business}"
-    lifespan ="${var.lifespan}"
-    owner_email = "${var.owner_email}"
-  }
 
+  tags = {
+    fqdn             = "${aws_route53_record.gateway_A_record.fqdn}"
+    application      = "${var.application}"
+    environment      = "${var.environment}"
+    role             = "${var.role}"
+    line_of_business = "${var.line_of_business}"
+    lifespan         = "${var.lifespan}"
+    owner_email      = "${var.owner_email}"
+  }
 }

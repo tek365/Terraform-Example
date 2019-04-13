@@ -59,6 +59,6 @@ resource "aws_iam_policy" "iam_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "policy_attachment" {
-  role       = "[your iam role ID goes here]" #todo enter this value
+  role       = "[your iam role ID goes here]"     #todo enter this value
   policy_arn = "${aws_iam_policy.iam_policy.arn}"
 }
