@@ -1,5 +1,6 @@
 resource "aws_security_group" "my_instance_sg" {
   vpc_id = "${var.vpc_id}"
+
   ingress {
     from_port = 22
     to_port   = 22

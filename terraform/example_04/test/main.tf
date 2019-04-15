@@ -37,5 +37,5 @@ module "autoscaled_instance" {
   subnets       = ["${data.aws_subnet_ids.private_subnets.ids}"]
   ami_id        = "${data.aws_ami.amazon_linux.id}"
   key_name      = "ec2_demo"
-  vpc_id = "${data.aws_vpc.product.id}"
+  vpc_id        = "${data.aws_vpc.product.id}"
 }

@@ -15,9 +15,10 @@ data "aws_vpc" "product" {
 
 data "aws_subnet" "instance_az" {
   filter {
-      name   = "availability-zone"
-      values = ["${local.instance_az}"]
+    name   = "availability-zone"
+    values = ["${local.instance_az}"]
   }
+
   vpc_id = "${data.aws_vpc.product.id}"
 
   tags = {
@@ -74,7 +75,7 @@ resource "aws_security_group" "my_instance_sg" {
 }
 
 resource "aws_instance" "my_ec2_instance" {
-  ami = "${data.aws_ami.amazon_linux.id}"
+  ami                    = "${data.aws_ami.amazon_linux.id}"
   instance_type          = "t2.micro"
   availability_zone      = "${local.instance_az}"
   vpc_security_group_ids = ["${aws_security_group.my_instance_sg.id}"]
