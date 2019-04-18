@@ -1,2 +1,2 @@
-# HUG-Terraform
-Terraform Examples for the Milwaukee Hashicorp User Group 4/17/2019
+# TEK365-Terraform
+Terraform Examples Tek365 4/17/2019
